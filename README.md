@@ -15,3 +15,9 @@ If you run a Desktop Environment like KDE, add the bash script to "System Settin
 
 ## Preview
 ![OpenVPN3-Applet](applet-demo.png)
+
+## Author
+
+`Caro <caroline.hemberger@nesto-software.de>`
+
+License: MIT
