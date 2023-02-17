@@ -1,4 +1,4 @@
-# openvpn3-applet
+# openvpn3-applet (for Linux)
 
 Prerequisites:
 * openvpn3-linux (https://github.com/OpenVPN/openvpn3-linux)
