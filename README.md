@@ -19,8 +19,11 @@ Note: Your desktop environment must support [XDG Autostart](https://wiki.archlin
 
 Alternatively, to start the applet manually, launch the script: `~/.openvpn3-applet/openvpn3applet.sh`.
 
-## Autostart
-If you run a Desktop Environment like KDE, add the bash script to "System Settings" -> "Startup and Shutdown" -> "Autostart" -> "Applications" (add).
+## Limitations
+
+We currently support one concurrent connection. Only click "connect" once and wait for the browser to open.
+Otherwise, the applet attempts to open a second session which is unintended and will be fixed in the future.
+
 
 ## Preview
 
