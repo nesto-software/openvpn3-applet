@@ -1,14 +1,23 @@
 # openvpn3-applet (for Linux)
 
-Prerequisites:
+## Prerequisites:
 * openvpn3-linux (https://github.com/OpenVPN/openvpn3-linux)
+  * Debian/Ubuntu: https://openvpn.net/cloud-docs/openvpn-3-client-for-linux/#installation-for-debian-and-ubuntu
+  * Arch: https://aur.archlinux.org/packages/openvpn3
+  * Red Hat/Centos: https://openvpn.net/cloud-docs/openvpn-3-client-for-linux/#installation-for-fedora-red-hat-enterprise-linux-centos-or-scientific-linux
 * yad (https://github.com/v1cont/yad)
+  * Debian/Ubuntu: https://wiki.ubuntuusers.de/yad/
+  * Arch: https://archlinux.org/packages/community/x86_64/yad/
 
+## Install
 
-To start the applet, just launch the following script:
-./src/openvpn3applet.sh
+- Download the script: `git clone https://github.com/nesto-software/openvpn3-applet.git /tmp/openvpn3-applet`
+- Install the script: `cp -R /tmp/openvpn3-applet/src/. ~/.openvpn3-applet`
+- Add to autostart: `cp /tmp/openvpn3-applet/xdg-config/autostart/openvpn3-applet.desktop ~/.config/autostart/`
 
-See ./src/openvpn3applet.sh -h for more information
+Note: Your desktop environment must support [XDG Autostart](https://wiki.archlinux.org/title/XDG_Autostart) for this to work.
+
+Alternatively, to start the applet manually, launch the script: `~/.openvpn3-applet/openvpn3applet.sh`.
 
 ## Autostart
 If you run a Desktop Environment like KDE, add the bash script to "System Settings" -> "Startup and Shutdown" -> "Autostart" -> "Applications" (add).

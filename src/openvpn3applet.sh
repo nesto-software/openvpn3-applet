@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONFIG_DIR=~/.openvpn-applet
+CONFIG_DIR=~/.config/openvpn-applet
 export CONFIG_DIR
 CONFIG_FILE_PATH=$CONFIG_DIR/config
 export CONFIG_FILE_PATH

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=sh -c '$HOME/.openvpn3-applet/openvpn3applet.sh'
+Icon=
+Name=openvpn3-applet
+Path=
+Terminal=False
+Type=Application
