@@ -1,5 +1,7 @@
 # openvpn3-applet (for Linux)
 
+This tool is necessary, because NetworkManager does not support OpenVPN 3 yet, unfortunately: https://gitlab.gnome.org/GNOME/NetworkManager-openvpn/-/issues/69
+
 ## Prerequisites:
 * openvpn3-linux (https://github.com/OpenVPN/openvpn3-linux)
   * Debian/Ubuntu: https://openvpn.net/cloud-docs/openvpn-3-client-for-linux/#installation-for-debian-and-ubuntu
