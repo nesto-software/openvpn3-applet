@@ -19,7 +19,7 @@ Note: Your desktop environment must support [XDG Autostart](https://wiki.archlin
 
 Alternatively, to start the applet manually, launch the script: `~/.openvpn3-applet/openvpn3applet.sh`.
 
-To run the script on Wayland, set the environment variable: `GDK_BACKEND=x11`.
+To run the script on XWayland, set the environment variable: `GDK_BACKEND=x11`.
 
 ## Limitations
 
