@@ -1,6 +1,10 @@
 # openvpn3-applet (for Linux)
 
-This tool is necessary, because NetworkManager does not support OpenVPN 3 yet, unfortunately: https://gitlab.gnome.org/GNOME/NetworkManager-openvpn/-/issues/69
+This tool exists because NetworkManager does not support OpenVPN 3 yet, see [issue #69 in the official OpenVPN repository](https://gitlab.gnome.org/GNOME/NetworkManager-openvpn/-/issues/69).
+We wrote this applet as we want to connect to the OpenVPN CloudConnexa offering which prompts the user to follow an authentication flow in the browser.
+
+**This applet currently supports SAML authentication only. PR to support more auth methods welcome.**
+**You need to set a default browser.** 
 
 ## Prerequisites:
 * openvpn3-linux (https://github.com/OpenVPN/openvpn3-linux)
