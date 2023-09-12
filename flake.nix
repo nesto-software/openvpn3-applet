@@ -24,7 +24,7 @@
                 name = "openvpn3-applet";
                 src = ./.;
                 nativeBuildInputs = [
-                  pkgs.yad
+                  pkgs.makeWrapper
                 ];
                 installPhase = ''
                   install -d $out
@@ -32,9 +32,14 @@
                   install -d $out/share/applications
 
                   cp -R src/ $out
-                  ln -s $out/src/openvpn3applet.sh $out/bin/openvpn3applet
-
                   NESTO_BIN_PATH=$out/bin/openvpn3applet
+
+                  makeWrapper "$out/src/openvpn3applet.sh" "$NESTO_BIN_PATH" \
+                    --inherit-argv0 \
+                    --prefix PATH : ${pkgs.lib.makeBinPath [ 
+                      pkgs.yad
+                    ]}
+
                   sed "s#@execPath@#$NESTO_BIN_PATH#" xdg-config/autostart/openvpn3-applet.desktop.in > $out/share/applications/openvpn3-applet.desktop
                 '';
               };
