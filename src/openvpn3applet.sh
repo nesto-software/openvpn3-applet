@@ -56,7 +56,7 @@ export -f on_click
 function disconnect() {
 	echo $(date) " | " "Disconnecting.."
 	exec 3<>$PIPE
-	echo "icon:$RUNNING_DIR/icons/circle-lightblue.png" >&3
+	echo "icon:$RUNNING_DIR/icons/icon-blue.png" >&3
 	sessionPath=$(openvpn3 sessions-list | grep Path | awk ' { print $2 } ')
 	openvpn3 session-manage --disconnect --session-path $sessionPath
 	update_state
@@ -67,7 +67,7 @@ export -f disconnect
 function connect() {
 	echo $(date) " | " "Connecting..."
 	exec 3<>$PIPE
-	echo "icon:$RUNNING_DIR/icons/circle-lightblue.png" >&3
+	echo "icon:$RUNNING_DIR/icons/icon-blue.png" >&3
 	openvpn3 session-start --config $OPENVPN_CONFIG_PATH
 	update_state
 }
@@ -83,19 +83,19 @@ function update_state() {
 	while IFS= read -r line; do
 		if [[ $line = "No sessions available" || $line = *"Client authentication failed: Authentication failed" ]]; then
 			echo $(date) " | " "Not connected"
-			echo "icon:$RUNNING_DIR/icons/circle-red.png" >&3
+			echo "icon:$RUNNING_DIR/icons/icon-red.png" >&3
 			echo "menu:Connect!bash -c 'connect'" $defaultMenuEntries >&3
 			echo "tooltip:Not connected" >&3
 			detectedState=true
 		elif [[ $line = *"Client connected" ]]; then
 			echo $(date) " | " "Session found!"
-			echo "icon:$RUNNING_DIR/icons/circle-green.png" >&3
+			echo "icon:$RUNNING_DIR/icons/icon-green.png" >&3
 			echo "menu:Disconnect!bash -c 'disconnect'" $statEntry $defaultMenuEntries >&3
 			echo "tooltip:Connected to VPN" >&3
 			detectedState=true
 		elif [[ $line = *"Web authentication required to connect" ]]; then
 			echo $(date) " | " "Waiting for web authentication"
-			echo "icon:$RUNNING_DIR/icons/circle-lightblue.png" >&3
+			echo "icon:$RUNNING_DIR/icons/icon-blue.png" >&3
 			echo "menu:Disconnect!bash -c 'disconnect'" $statEntry $defaultMenuEntries >&3
 			echo "tooltip:Waiting for Web authentiction (check webbrowser)" >&3
 			detectedState=true
@@ -105,7 +105,7 @@ function update_state() {
 	# failsafe for unknown states
 	if [[ $detectedState = false ]]; then
 		echo $(date) " | " "Unknown state"
-		echo "icon:$RUNNING_DIR/icons/circle-red.png" >&3
+		echo "icon:$RUNNING_DIR/icons/icon-red.png" >&3
 		echo "menu:Connect!bash -c 'connect'" $defaultMenuEntries >&3
 		echo "tooltip:Not connected" >&3
 	fi
@@ -171,7 +171,7 @@ export RUNNING_DIR
 # create the notification icon
 yad --notification \
 	--listen \
-	--image="$RUNNING_DIR/icons/circle-red.png" \
+	--image="$RUNNING_DIR/icons/icon-red.png" \
 	--text="openvpn3-applet" \
 	--command="bash -c 'on_click'" <&3 &
 notifpid=$!
