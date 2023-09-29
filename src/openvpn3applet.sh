@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CONFIG_DIR=~/.config/openvpn-applet
 export CONFIG_DIR
@@ -80,6 +80,7 @@ function update_state() {
 
 	detectedState=false
 	output=$(openvpn3 sessions-list)
+	echo "action:menu" >&3
 	while IFS= read -r line; do
 		if [[ $line = "No sessions available" || $line = *"Client authentication failed: Authentication failed" ]]; then
 			echo $(date) " | " "Not connected"
