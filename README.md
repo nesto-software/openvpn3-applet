@@ -19,7 +19,28 @@ We wrote this applet as we want to connect to the OpenVPN CloudConnexa offering 
 
 `nix profile install 'git+https://github.com/nesto-software/openvpn3-applet'`
 
-You can then add the `openvpn3-applet.desktop` to your desktop manager's autostart config.
+You can then add the `openvpn3-applet.desktop` to your desktop manager's autostart config, e.g. for a working GNOME config using home-manager:
+
+```
+let
+  openvpn3-applet-pkg = openvpn3-applet.defaultPackage.${system};
+in
+ home-manager.users.your-user = { lib, pkgs, ... }: {
+    home = {
+      file = {
+        ".config/autostart/openvpn3-applet.desktop" = {
+          source = (openvpn3-applet-pkg + "/share/applications/openvpn3-applet.desktop");
+          target = ".config/autostart/openvpn3-applet.desktop";
+        };
+      };
+      packages = [
+        openvpn3-applet-pkg
+      ];
+    };
+};
+```
+
+Note: You need to pass the applet's flake as `openvpn3-applet` and the `system`.
 
 ## Install (others)
 
