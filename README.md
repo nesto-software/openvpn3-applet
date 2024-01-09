@@ -15,7 +15,13 @@ We wrote this applet as we want to connect to the OpenVPN CloudConnexa offering 
   * Debian/Ubuntu: https://wiki.ubuntuusers.de/yad/
   * Arch: https://archlinux.org/packages/community/x86_64/yad/
 
-## Install
+## Install (NixOS)
+
+`nix profile install 'git+https://github.com/nesto-software/openvpn3-applet'`
+
+You can then add the `openvpn3-applet.desktop` to your desktop manager's autostart config.
+
+## Install (others)
 
 - Download the script: `git clone https://github.com/nesto-software/openvpn3-applet.git /tmp/openvpn3-applet`
 - Install the script: `cp -R /tmp/openvpn3-applet/src/. ~/.openvpn3-applet`
