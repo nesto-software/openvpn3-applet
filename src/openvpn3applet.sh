@@ -79,6 +79,7 @@ function update_state() {
 	statEntry="|Stats!bash -c 'display_session_stats'"
 
 	detectedState=false
+	openvpn3 session-manage --cleanup
 	output=$(openvpn3 sessions-list)
 	echo "action:menu" >&3
 	while IFS= read -r line; do
