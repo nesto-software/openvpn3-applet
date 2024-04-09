@@ -4,7 +4,9 @@ This tool exists because NetworkManager does not support OpenVPN 3 yet, see [iss
 We wrote this applet as we want to connect to the OpenVPN CloudConnexa offering which prompts the user to follow an authentication flow in the browser.
 
 **This applet currently supports SAML authentication only. PR to support more auth methods welcome.**
-**You need to set a default browser.** 
+**You need to set a default browser, e.g. using the BROWSER env variable.**
+
+**Update: There is a new official project by OpenVPN: [openvpn3-indicator](https://github.com/OpenVPN/openvpn3-indicator) which has better dbus and gnome integration and is hopefully better maintained overall.**
 
 ## Prerequisites:
 * openvpn3-linux (https://github.com/OpenVPN/openvpn3-linux)
